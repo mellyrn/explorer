@@ -7,3 +7,4 @@ pandas
 numpy
 matplotlib
 fsspec
+fiona==1.9.4
