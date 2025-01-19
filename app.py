@@ -11,7 +11,7 @@ import dash_bootstrap_components as dbc
 import fsspec
 import webbrowser
 
-world = gpd.read_file('ne_110m_admin_0_countries.shp')
+world = gpd.read_file(gpd.datasets.get_path('ne_110m_admin_0_countries'))
 df = pd.read_csv("spy3.csv")
 
 regime_type_mapping = {
