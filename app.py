@@ -10,8 +10,10 @@ from dash import Dash, dcc, html, Input, Output
 import dash_bootstrap_components as dbc
 import fsspec
 import webbrowser
+import os
 
-world = gpd.read_file(gpd.datasets.get_path('ne_110m_admin_0_countries'))
+
+world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
 df = pd.read_csv("spy3.csv")
 
 regime_type_mapping = {
@@ -189,4 +191,6 @@ def update_graphs(selected_country):
     return fig_map, fig_bar, fig_table
 
 if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0', port=8051)
+    port = int(os.environ.get('PORT', 10000))
+    app.run_server(debug=False, host='0.0.0.0', port=port)
+
